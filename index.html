@@ -306,8 +306,28 @@
     background-color: #ffb1bd; /* Cambia de color al pasar el mouse */
     transform: translateY(-2px); /* Pequeño efecto de salto */
 }
-    body {
-    padding: 10px; /* Esto separa el contenido de los bordes del celular */
+/* Esto evita que el menú se amontone */
+nav, .menu { 
+    display: flex;
+    flex-wrap: wrap; /* Si no caben, bajan ordenadamente */
+    justify-content: center;
+    gap: 10px; /* Espacio entre botones */
+}
+
+/* Esto separa el texto de bienvenida del calendario */
+.contenido, main, section {
+    margin-top: 20px; /* Dale aire arriba para que el calendario no lo tape */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Para que las imágenes no se salgan de la pantalla del móvil */
+img {
+    max-width: 100%;
+    height: auto;
 }
 </style>
 
