@@ -381,9 +381,10 @@ img {
 </ul>    
 </nav>
         <form class="search-form">
-            <div class="formulario-de-busqueda">
-    <input type="text" id="inputBuscador" placeholder="Buscar...">
-    <button type="button" onclick="ejecutarBusqueda()">🔍</button>
+    <div class="formulario-de-busqueda" style="display: flex; gap: 0;">
+    <input type="text" id="inputBuscador" placeholder="Buscar..." style="border-right: none; border-radius: 20px 0 0 20px;">
+    <button type="button" onclick="ejecutarBusqueda()" style="border-left: none; border-radius: 0 20px 20px 0;">🔍</button>
+</div>
 </div>
         </form>
        
