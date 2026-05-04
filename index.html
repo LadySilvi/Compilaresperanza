@@ -437,23 +437,23 @@ Nos alegra que estés aquí. Juntos, vamos a transformar tecnología en oportuni
         <p>&copy; 2026 - Hecho Por Silvia Rios </p>
     </footer>
 <script>
-window.addEventListener('load', function() {
-    function actualizarReloj() {
+function actualizarReloj() {
     const ahora = new Date();
-    // Esta línea formatea la hora en 12 horas con am/pm
+    // Configuramos para que no use el formato de 12 horas
     const opciones = { 
         hour: '2-digit', 
         minute: '2-digit', 
         second: '2-digit', 
-        hour12: true 
+        hour12: false // Esto activa el formato de 24h
     };
     
-    const horaFormateada = ahora.toLocaleString('en-US', opciones).toLowerCase();
+    const horaFormateada = ahora.toLocaleString('es-CL', opciones);
     
-    // Cambia 'reloj' por el ID que tenga tu elemento HTML
     document.getElementById('reloj').textContent = horaFormateada;
 }
 
+setInterval(actualizarReloj, 1000);
+actualizarReloj();
 // Actualiza cada segundo
 setInterval(actualizarReloj, 1000);
 actualizarReloj(); // Ejecuta de inmediato al cargar
