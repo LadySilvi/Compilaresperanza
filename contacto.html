@@ -10,7 +10,7 @@
 
 </head>
 <style>
-    img {
+   img {
         display: block;
         /* Esto es lo más importante */
         margin: 0 auto;
@@ -192,8 +192,8 @@
     #reloj-contenedor {
         position: absolute;
         /* Lo saca del flujo para no empujar la imagen */
-        margin-left: auto;
-        margin-right: auto;
+        left: 30px;
+        top: 50%;
         transform: translateY(-50%);
         background-color: #ffb7c5;
         padding: 8px 15px;
@@ -201,12 +201,7 @@
         color: rgb(255, 255, 255);
         font-weight: times;
     }
-   .reloj { 
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    /* Mantén tus otros estilos de color y fondo aquí */
-}
+
     .imagen-banner {
         display: block;
         margin-left: auto;
@@ -216,20 +211,22 @@
         transform: translateX(30px);
         /* ¡Esta es la clave! Cámbia el 50 por el número que quieras */
     }
-    .calendario-manual {
-    position: relative; /* Cambiado de absolute */
-    margin-left: auto;  /* Para centrar */
-    margin-right: auto; /* Para centrar */
-    width: 150px;
-    background-color: white;
-    border: 2px solid #ffb7c5;
-    margin-top: 40px;
-    border-radius: 10px;
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-}
+.calendario-manual {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto
+        /* Ajusta este número para que no choque con el reloj */
+        width: 150px;
+        background-color: white;
+        border: 2px solid #ffb7c5;
+        /* Rosa de la fundación */
+        margin-top: 40px;
+        border-radius: 10px;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
     .calendario-header {
         background-color: #ffb7c5;
         color: white;
@@ -317,6 +314,11 @@ nav, .menu {
     gap: 10px; /* Espacio entre botones */
 }
 
+/* Para que las imágenes no se salgan de la pantalla del móvil */
+img {
+    max-width: 100%;
+    height: auto;
+} 
 </style>
 
 <head>
