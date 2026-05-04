@@ -437,24 +437,19 @@ Nos alegra que estés aquí. Juntos, vamos a transformar tecnología en oportuni
         <p>&copy; 2026 - Hecho Por Silvia Rios </p>
     </footer>
 <script>
-function actualizarReloj() {
-    const ahora = new Date();
-    const opciones = { 
-        hour: '2-digit', 
-        minute: '2-digit', 
-        second: '2-digit', 
-        hour12: false 
-    };
-    const horaFormateada = ahora.toLocaleTimeString('es-CL', opciones);
-    document.getElementById('reloj').innerText = horaFormateada;
-}
-setInterval(actualizarReloj, 1000);
-actualizarReloj();
-setInterval(actualizarReloj, 1000);
-actualizarReloj();
-// Actualiza cada segundo
-setInterval(actualizarReloj, 1000);
-actualizarReloj(); // Ejecuta de inmediato al cargar
+window.addEventListener('load', function() {
+    function actualizarTodo() {
+        const ahora = new Date();
+        const diaReal = ahora.getDate(); // Esto detecta que hoy es 3
+
+        // --- RELOJ ---
+        const elReloj = document.getElementById('reloj');
+        if (elReloj) {
+            elReloj.textContent = ahora.toLocaleTimeString('en-US', { 
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true 
+            }).toLowerCase();
+        }
+
         // --- CALENDARIO DINÁMICO ---
         // Buscamos todos los números dentro de tu div 'nomeron-dias'
         const dias = document.querySelectorAll('.nomeron-dias span');
