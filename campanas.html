@@ -487,6 +487,28 @@ window.addEventListener('load', function() {
     setInterval(actualizarTodo, 1000);
     actualizarTodo();
 });
+ function ejecutarBusqueda() {
+    // Captura lo que escribiste en el cuadro
+    const textoBusqueda = document.getElementById('inputBuscador').value.toLowerCase();
+    
+    // Busca en todos los textos de Compilar Esperanza
+    const elementos = document.querySelectorAll('p, h1, h2, h3, span, li');
+    let encontrado = false;
+
+    elementos.forEach(el => {
+        el.style.backgroundColor = "transparent"; // Limpia búsquedas viejas
+        
+        if (textoBusqueda !== "" && el.textContent.toLowerCase().includes(textoBusqueda)) {
+            el.style.backgroundColor = "#ffb7c5"; // Resalta en rosa
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            encontrado = true;
+        }
+    });
+
+    if (!encontrado && textoBusqueda !== "") {
+        alert("No encontramos nada con esa palabra, Silvia.");
+    }
+}   
 </script>
 </body>
 </html>
