@@ -10,7 +10,9 @@
 
 </head>
 <style>
-    img {
+    
+</style>
+img {
         display: block;
         /* Esto es lo más importante */
         margin: 0 auto;
@@ -190,10 +192,10 @@
     }
 
     #reloj-contenedor {
-        position: relative;
+        position: absolute;
         /* Lo saca del flujo para no empujar la imagen */
-        margin-left: auto;
-        margin-right: auto;
+        left: 30px;
+        top: 50%;
         transform: translateY(-50%);
         background-color: #ffb7c5;
         padding: 8px 15px;
@@ -214,7 +216,7 @@
 .calendario-manual {
         position: relative;
         margin-left: auto;
-        margin-right: auto;
+        margin-right: auto
         /* Ajusta este número para que no choque con el reloj */
         width: 150px;
         background-color: white;
@@ -314,23 +316,11 @@ nav, .menu {
     gap: 10px; /* Espacio entre botones */
 }
 
-/* Esto separa el texto de bienvenida del calendario */
-.contenido, main, section {
-    margin-top: 20px; /* Dale aire arriba para que el calendario no lo tape */
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
 /* Para que las imágenes no se salgan de la pantalla del móvil */
 img {
     max-width: 100%;
     height: auto;
 }
-</style>
-
 <head>
 
 
