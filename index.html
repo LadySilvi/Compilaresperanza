@@ -439,19 +439,17 @@ Nos alegra que estés aquí. Juntos, vamos a transformar tecnología en oportuni
 <script>
 function actualizarReloj() {
     const ahora = new Date();
-    // Configuramos para que no use el formato de 12 horas
     const opciones = { 
         hour: '2-digit', 
         minute: '2-digit', 
         second: '2-digit', 
-        hour12: false // Esto activa el formato de 24h
+        hour12: false 
     };
-    
-    const horaFormateada = ahora.toLocaleString('es-CL', opciones);
-    
-    document.getElementById('reloj').textContent = horaFormateada;
+    const horaFormateada = ahora.toLocaleTimeString('es-CL', opciones);
+    document.getElementById('reloj').innerText = horaFormateada;
 }
-
+setInterval(actualizarReloj, 1000);
+actualizarReloj();
 setInterval(actualizarReloj, 1000);
 actualizarReloj();
 // Actualiza cada segundo
