@@ -442,12 +442,14 @@ window.addEventListener('load', function() {
 
         // --- RELOJ ---
         const elReloj = document.getElementById('reloj');
-        if (elReloj) {
-            elReloj.textContent = ahora.toLocaleTimeString('en-US', { 
-                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true 
-            }).toLowerCase();
-        }
-
+if (elReloj) {
+    elReloj.textContent = ahora.toLocaleTimeString('es-CL', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false // Cambiado a 24 horas
+    });
+}
         // --- CALENDARIO DINÁMICO ---
         // Buscamos todos los números dentro de tu div 'nomeron-dias'
         const dias = document.querySelectorAll('.nomeron-dias span');
