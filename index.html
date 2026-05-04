@@ -443,15 +443,12 @@ window.addEventListener('load', function() {
         const diaReal = ahora.getDate(); // Esto detecta que hoy es 3
 
         // --- RELOJ ---
-const elReloj = document.getElementById('reloj');
-if (elReloj) {
-    // Usamos 'en-US' para asegurar que el am/pm aparezca correctamente
-    const horaTexto = ahora.toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true 
-    });
+        const elReloj = document.getElementById('reloj');
+        if (elReloj) {
+            elReloj.textContent = ahora.toLocaleTimeString('en-US', { 
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true 
+            }).toLowerCase();
+        }
 
         // --- CALENDARIO DINÁMICO ---
         // Buscamos todos los números dentro de tu div 'nomeron-dias'
