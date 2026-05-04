@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Nuevo Proyecto</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<style>
+    img {
+        display: block;
+        /* Esto es lo más importante */
+        margin: 0 auto;
+        /* Margen automático a los lados */
+        width: 400px;
+        /* Dale un ancho para ver el cambio */
+    }
+
+    ul {
+        list-style-type: none;
+        /* Esto quita los puntos negros */
+        padding: 0;
+        /* Esto quita el espacio que dejan los puntos */
+        margin: 0;
+        /* Limpia los márgenes externos */
+    }
+
+    .menu-horizontal {
+        display: flex;
+        /* Los pone uno al lado del otro */
+        justify-content: center;
+        /* Los centra horizontalmente */
+        list-style: none;
+        /* Quita los puntos negros */
+        padding: 0;
+        /* Quita el espacio de la izquierda */
+        margin: 0;
+        /* Quita márgenes extra */
+        width: 100%;
+        /* Usa todo el ancho de la pantalla */
+    }
+
+    .menu-horizontal li {
+        margin: 0 30px;
+        /* Espacio entre cada palabra */
+        margin-left: -5px !important;
+    }
+
+    .menu-horizontal li a {
+        text-decoration: none;
+        /* Quita el subrayado */
+        color: black;
+        /* Pon el color que más te guste */
+    }
+
+    .menu-horizontal {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        width: 100%;
+
+        margin-top: 30px;
+        /* <--- Esto es lo que crea el espacio hacia arriba */
+    }
+
+    .contenedor-principal {
+        display: flex;
+        justify-content: center;
+        /* Centra el post en la pantalla */
+        padding: 40px 20px;
+        /* Espacio arriba y a los costados */
+    }
+
+    .post {
+        max-width: 800px;
+        /* Evita que el texto sea demasiado largo y canse la vista */
+        line-height: 1.8;
+        /* Da más espacio entre líneas para mejor lectura */
+        font-family: 'Times New Roman ', Times, serif, sans-serif;
+        color: #333;
+    }
+
+    .post h2 {
+        color: #ffb7c5;
+        /* Puedes usar un color que combine con tu título rosa */
+        margin-bottom: 20px;
+        font-size: 2rem;
+    }
+
+    .navbar {
+        display: flex;
+        /* Pone el menú y el buscador en la misma línea */
+        align-items: center;
+        /* Los centra verticalmente */
+        width: 100%;
+        padding: 10px 40px;
+        position: relative;
+    }
+
+    .menu-horizontal {
+        display: flex;
+        list-style: none;
+        margin: 0 auto;
+        /* ¡Mágico! Centra el menú ignorando lo demás */
+        padding: 0;
+    }
+
+    .search-form {
+        position: absolute;
+        right: 80px;
+        /* <-- Aumenta este número para alejarlo del borde derecho */
+        top: 15px;
+        /* Ajusta esto para que quede alineado con el menú */
+        display: flex;
+        align-items: center;
+    }
+
+    .search-form input {
+        padding: 8px 12px;
+        /* Más acolchado para que se vea más grande */
+        width: 200px;
+        /* Puedes darle un ancho fijo para que destaque más */
+        border: 1px solid #ffb7c5;
+        /* Un borde rosa para que combine con tu título */
+        border-radius: 20px 0 0 20px;
+        /* Bordes redondeados para un look más moderno */
+        outline: none;
+    }
+
+    .search-form button {
+        padding: 8px 15px;
+        background-color: #ffb7c5;
+        /* Fondo rosa */
+        color: white;
+        border: none;
+        border-radius: 0 20px 20px 0;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .search-form button:hover {
+        background-color: #ff99aa;
+        /* Cambia de color al pasar el mouse */
+    }
+
+    footer {
+        width: 100%;
+        /* Asegura que ocupe todo el ancho de la pantalla */
+        text-align: center;
+        /* Centra el texto horizontalmente */
+        padding: 30px 0;
+        /* Le da un poco de aire arriba y abajo */
+        margin-top: 50px;
+        /* Separa el texto del contenido de arriba */
+    }
+
+    footer p {
+        font-size: 14px;
+        /* Un tamaño cómodo para leer */
+        color: #000000;
+        /* Un gris para que no compita con el contenido principal */
+        font-family: sans-serif;
+    }
+
+    main {
+        max-width: 800px;
+        /* Limita el ancho para que sea fácil de leer */
+        margin: 0 auto;
+        /* Lo centra en la pantalla */
+        text-align: center;
+        /* Centra el título y los párrafos */
+        padding-top: 50px;
+    }
+
+    .main-header {
+        position: relative;
+        /* Clave para el reloj */
+        display: flex;
+        justify-content: center;
+        /* Centra el logo */
+        align-items: center;
+        width: 100%;
+        padding: 20px 0;
+        background-color: white;
+        /* Limpia el gris */
+    }
+
+    #reloj-contenedor {
+        position: absolute;
+        /* Lo saca del flujo para no empujar la imagen */
+        left: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #ffb7c5;
+        padding: 8px 15px;
+        border-radius: 20px;
+        color: rgb(255, 255, 255);
+        font-weight: times;
+    }
+
+    .imagen-banner {
+        display: block;
+        margin-left: auto;
+        /* Esto ayuda a empujar desde la izquierda */
+        margin-right: auto;
+        /* Mantiene el equilibrio */
+        transform: translateX(30px);
+        /* ¡Esta es la clave! Cámbia el 50 por el número que quieras */
+    }
+.calendario-manual {
+        position: absolute;
+        left: 20px;
+        top: 100px;
+        /* Ajusta este número para que no choque con el reloj */
+        width: 150px;
+        background-color: white;
+        border: 2px solid #ffb7c5;
+        /* Rosa de la fundación */
+        margin-top: 40px;
+        border-radius: 10px;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    .calendario-header {
+        background-color: #ffb7c5;
+        color: white;
+        text-align: center;
+        padding: 5px;
+        font-weight: bold;
+        border-radius: 7px 7px 0 0;
+    }
+
+    .semana-dias {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        text-align: center;
+        font-weight: bold;
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nomeron-dias {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        text-align: center;
+        padding: 5px;
+    }
+
+    .nomeron-dias span {
+        padding: 3px 0;
+    }
+
+    .hoy {
+        background-color: #ffb7c5;
+        color: white;
+        border-radius: 50%;
+        font-weight: bold;
+    }
+    .sidebar-derecho-fija {
+    position: absolute;
+    
+    /* MÁS AL CENTRO: Aumenta este número para que camine a la izquierda */
+    right: 150px; 
+    
+    /* MANTENER ALTURA: Déjalo como lo tienes ahora si te gusta esa altura */
+    top: 200%; 
+    
+    z-index: 10000;
+    transform: translateY(-50%);
+}
+.boton-donar-principal {
+    background-color: #ffc0cb;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+/* Efecto opcional para que se vea más profesional */
+.boton-donar-principal:hover {
+    background-color: #ffb1bd;
+    transform: scale(1.05);
+}
+.boton-donar-principal:hover {
+    background-color: #ffb1bd;
+    transform: scale(1.05);
+}
+.contenedor-boton-donar {
+    margin-top: -10px; /* Ajusta este número si quieres que suba todavía más */
+    display: flex;
+    justify-content: center;
+}
+.boton-donar-principal:hover {
+    background-color: #ffb1bd; /* Cambia de color al pasar el mouse */
+    transform: translateY(-2px); /* Pequeño efecto de salto */
+}
+</style>
+
+<head>
+
+
+
+<body>
+    <header class="main-header">
+        <!-- El reloj ahora "flota" correctamente -->
+        <div id="reloj-contenedor">
+            <span id="reloj">00:00:00</span>
+
+        </div>
+
+        </div>
+
+
+
+        <div class="calendario-manual">
+    <div class="contenedor-tecnico">
+    <!-- Reloj -->
+    
+    <!-- Calendario -->
+    <div class="calendario">
+    
+    </div>
+</div>
+            <div class="calendario-header">MAYO 2026</div>
+            <div class="calendario-cuerpo">
+                <div class="semana-dias">
+                    <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
+                </div>
+                <div class="nomeron-dias">
+    <!-- Espacios para que el día 1 empiece en Viernes -->
+    <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
+    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+    <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+    <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+    <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
+    <span>29</span><span>30</span><span>31</span> 
+</div> <!-- Este cierra "nomeron-dias" -->
+
+    </div>
+</header>
+</div>
+</div>
+    </header>
+<div class="banner-central">
+    <img src="compilar Esperanza .png" alt="Compilar Esperanza" class="imagen-banner">
+</div>
+     <nav class="navbar">
+    <ul class="menu-horizontal">
+    <li><a href="Index.html">INICIO</a></li>
+    <li><a href="quienes-somos.html">QUIENES SOMOS</a></li>
+    <li><a href="servicios.html">SERVICIOS</a></li>
+    <li><a href="contacto.html">CONTACTO</a></li>
+    <li><a href="campanas.html">CAMPAÑAS</a></li>
+    <li><a href="participa.html">PARTICIPA</a></li>
+    
+</ul>
+</ul>    
+</nav>
+        <form class="search-form">
+            <input type="text" placeholder="Buscar..." name="search">
+            <button type="submit">🔍</button>
+        </form>
+       
+        </div>
+    </div>
+    <div class="sidebar-derecho-fija">
+    <!-- Reemplaza el enlace de abajo por tu link personal de PayPal.me -->
+    <a href="<div class="sidebar-derecho-fija">
+    <!-- Reemplaza el enlace de abajo por tu link personal de PayPal.me -->
+    <a href="https://www.paypal.com/donate/?hosted_button_id=V6ABMQLGFBM3S" target="_blank" class="boton-donar-principal">DONAR AHORA</a>
+    </div>
+</header>
+    </div>
+
+</header> <!-- Este es el cierre de la línea 373 -->
+
+</header>
+    </nav>
+    </header>
+    </nav>
+    <main class="contenedor-principal">
+        <article class="post">
+            <h2>CONTACTO</h2>
+            <p>
+               ¡Queremos escucharte! Ya sea que tengas una duda, una propuesta de colaboración o simplemente quieras saber más sobre cómo usamos la tecnología para ayudar, estamos aquí para ti. 
+            </p>
+            <strong>Mail:</strong>compilaresperanza@gmail.com
+          <p>
+    <strong>Whatsapp:</strong> 2212000074
+</p>
+            <strong>Sedes:</strong>Proximamente
+            <p>
+                ¡Seguimos trabajando para compilar más esperanza!
+            </p>
+ <div style="text-align: center; margin: 30px 0;">
+    <a href="https://www.paypal.com/donate/?hosted_button_id=V6ABMQLGFBM3S" target="_blank" style="
+        background-color: pink;
+        color:black ; 
+        padding: 12px 25px; 
+        text-decoration: none; 
+        border-radius: 10px; 
+        font-weight: bold; 
+        font-family: 'Arial', sans-serif; 
+        display: inline-block; 
+        border: 2px solid pink;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    ">
+        DONAR ❤
+    </a>
+</div>
+    </a>
+</div>
+        </article>
+    </main>
+    </header>
+
+    <main>
+        <section id="hero">
+
+
+
+        </section>
+
+        <section id="servicios">
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Hecho Por Silvia Rios </p>
+    </footer>
+<script>
+window.addEventListener('load', function() {
+    function actualizarTodo() {
+        const ahora = new Date();
+        const diaReal = ahora.getDate(); // Esto detecta que hoy es 3
+
+        // --- RELOJ ---
+        const elReloj = document.getElementById('reloj');
+        if (elReloj) {
+            elReloj.textContent = ahora.toLocaleTimeString('en-US', { 
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true 
+            }).toLowerCase();
+        }
+
+        // --- CALENDARIO DINÁMICO ---
+        // Buscamos todos los números dentro de tu div 'nomeron-dias'
+        const dias = document.querySelectorAll('.nomeron-dias span');
+        
+        dias.forEach(span => {
+            // Quitamos el diseño de "hoy" a todos primero
+            span.style.backgroundColor = "transparent";
+            span.style.color = "black";
+            span.style.borderRadius = "0";
+            span.style.fontWeight = "normal";
+
+            // Si el número del span coincide con el día real (3)
+            if (parseInt(span.textContent) === diaReal) {
+                span.style.backgroundColor = "#ffc0cb"; // Rosa de Compilar Esperanza
+                span.style.color = "white";
+                span.style.borderRadius = "50%";
+                span.style.fontWeight = "bold";
+                span.style.display = "inline-block";
+                span.style.width = "20px";
+                span.style.textAlign = "center";
+            }
+        });
+    }
+
+    // Se actualiza cada segundo para que el cambio de día sea automático
+    setInterval(actualizarTodo, 1000);
+    actualizarTodo();
+});
+</script>
+</body>
+</html>
+</body>
+    
