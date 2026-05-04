@@ -438,18 +438,25 @@ Nos alegra que estés aquí. Juntos, vamos a transformar tecnología en oportuni
     </footer>
 <script>
 window.addEventListener('load', function() {
-    function actualizarTodo() {
-        const ahora = new Date();
-        const diaReal = ahora.getDate(); // Esto detecta que hoy es 3
+    function actualizarReloj() {
+    const ahora = new Date();
+    // Esta línea formatea la hora en 12 horas con am/pm
+    const opciones = { 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit', 
+        hour12: true 
+    };
+    
+    const horaFormateada = ahora.toLocaleString('en-US', opciones).toLowerCase();
+    
+    // Cambia 'reloj' por el ID que tenga tu elemento HTML
+    document.getElementById('reloj').textContent = horaFormateada;
+}
 
-        // --- RELOJ ---
-        const elReloj = document.getElementById('reloj');
-        if (elReloj) {
-            elReloj.textContent = ahora.toLocaleTimeString('en-US', { 
-                hour: '2-digit', minute: '2-digit', second: '2-digit', hour24: true 
-            }).toLowerCase();
-        }
-
+// Actualiza cada segundo
+setInterval(actualizarReloj, 1000);
+actualizarReloj(); // Ejecuta de inmediato al cargar
         // --- CALENDARIO DINÁMICO ---
         // Buscamos todos los números dentro de tu div 'nomeron-dias'
         const dias = document.querySelectorAll('.nomeron-dias span');
