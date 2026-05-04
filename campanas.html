@@ -323,7 +323,26 @@ nav, .menu {
     align-items: center;
     text-align: center;
 }
+/* Esto arregla el desorden en celulares */
+@media (max-width: 768px) {
+    .calendario-manual, .reloj, .buscador {
+        position: relative !important; /* Deja de flotar */
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin: 20px auto !important; /* Se centran y se separan */
+        display: block !important;
+        width: 90% !important;
+    }
 
+    /* Esto evita que el menú choque con el banner verde */
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
 /* Para que las imágenes no se salgan de la pantalla del móvil */
 img {
     max-width: 100%;
